@@ -1,0 +1,29 @@
+\section{Background}
+
+\subsection{The Role of a Central Bank}
+
+A central bank is an institution charged with the issuance of a country's currency and management of a country's monetary policy [3]-[4]. Historically, the necessity of a central bank was borne out by its mandates of economic and financial stability. More fundamentally, however, the central bank determines the amount of base money circulating throughout the economy (typically denoted by the term M0 money supply).
+
+Central banks principally influence the amount of base money in the economy through a process called \textit{price setting}. By setting the policy rate, M0 money supply is fixed to demand from retail banks [3]. Where the policy rate nears zero in a stagnated economy, the central bank turns to a second monetary policy called \textit{quantitative easing}. Here, instead of relying upon market forces to influence money supply, the central bank buys assets, usually government debt, from institutions that are not retail banks [3].
+
+Whatever monetary policy is pursued by the central bank, base money supply is fundamentally a very large accounting exercise. In the former case, the bank lends money to a retail bank as an asset of the central bank's reserves, and a liability on the debtee's reserves account [5]. And, in the latter, it draws on its reserves to purchase assets as a liability and recompenses the asset holder's retail bank account [5]-[6].
+
+Both cases contemplate a method of transferring and storing funds that must exist to facilitate RTGS (Real Time Gross Settlement) between retail banks [7]. For instance, in Australia, this transfer service is RITS (Reserve Bank Information and Transfer System) and the store is called an ESA (Exchange Settlement Account). 
+
+While this process accounts for large value payments between retail banks, these payments are merely obligations as between retail banks [7]. Such larger obligations are comprised of transactions between individuals and corporations. They must settle through secondary providers including, inter alia, the Australian Payments Network, Eftpos, Visa and Mastercard.
+
+\subsection{The Poor Man’s Introduction to CBDC}
+
+A Central Bank Digital Currency (`CBDC') [8]-[10] is a form of digital fiat currency issued by a central bank. CBDC assume different roles depending on the purpose for which they are used. As discussed, there are generally two different types of transactions requiring settlement. First, the settlement of obligations between retail banks or ``wholesale'' transactions. And, second, the settlement of funds between individuals and corporations or ``retail'' transactions.
+
+\textit{Wholesale CBDC} [8], [10] seek to enhance the existing method of settling large financial transactions between retail banks. In view of the fact that central banks already settle obligations digitally, wholesale CBDC are an improvement on current money supply methodologies. That said, wholesale CBDC may yet improve more complex transactions including syndicated lending, discussed in Part IV.
+
+\textit{Retail CBDC} [8], [11] might best be thought of as a digital variant of minted money: cash and coins. Prevailing consensus presumes two types of retail CBDC (1) token-based CBDC and (2) account-based CBDC. Token-based CBDC delegate digital wallets to individuals that hold currency used in everyday transactions. Account-based CBDC envision individuals opening accounts with the central bank in a manner not dissimilar to ESAs mentioned in the previous section.
+
+\subsection{The Problem of Privacy in CBDC}
+
+Today, transactions in the broader economy attract different levels of anonymity depending on the amount of money exchanged, method of transmission and type of transaction. For instance, in Australia, solicitors must report transactions of an amount greater than AUD\$10,000 to AUSTRAC [12]. Electronic gaming machines have similar minimum reporting thresholds. Contrast this to an individual purchasing a flat white at their local cafe with cash. These, low-value, physical transactions are largely untraceable, proffering great amounts of anonymity.
+
+Privacy is therefore of major concern to a digital currency assuming the characteristics of legal tender. Given that wholesale transactions are currently largely transparent, CBDC may offer greater privacy to major institutional firms. However, to the extent that retail CBDC takes the form of traceable cash, it would be quite right for the public to be genuinely concerned. In any event, the potential for anonymous high-volume and low-friction transactions offered by CBDC pose the possibility that they become a medium through which money laundering and terrorist financing may flourish [13]. Clearly, preventing these socially undesirable consequences requires striking a careful balance between privacy and transparency. 
+
+Put simply, the problem is: How can CBDC guarantee privacy against arbitrary or unwarranted government interference without hindering the investigation of, and enforcement against, genuine illicit activities? In answering that question, this paper is concerned with two distinct forms of privacy. The first, \textit{identity privacy} [14], assumes that the individuals offering and accepting a CBDC would prefer to remain anonymous. The second, \textit{transaction privacy} [14], supposes that individuals would prefer not to reveal the exact details of their transactions. Both forms of privacy require a base understanding of a few cryptographic primitives, the topic of the next section.

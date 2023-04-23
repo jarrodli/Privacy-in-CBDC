@@ -1,0 +1,24 @@
+\section{Previous Work}
+
+\textit{Blind Signatures}. Chaum [15] theorised an early payments system with untraceable properties by applying commutative style public key cryptography to a three-party transaction. The basic idea is that Bob can validate a currency $c$ by presenting $g(c)$ to a central authority, such that no computationally feasible $g'$ can be inferred by the central authority. Supposing the authority validates the currency by applying $f'$, Bob may then apply an inverse communing function $g'(f'(g(c)))$ to yield $f'(c)$. At this point, Bob may transfer the authoritatively signed $c$ to Alice. Alice presents $f'(c)$ to the central authority, who is able to validate the holding with their public key $f$. However, this authority remains unable to determine the transferor's identity because no correlation is contemplated to exist between $g(c)$ and $f'(c)$.
+
+\textit{Secure Multi Party Computation}. Atapoor, Smart and Alaoui [16] discuss a method for settling multi-party transactions under the assumption that multilateral netting is possible. That is, where a party lacks the funds to settle a transaction at time $t$ but may settle such a transaction at time $t + 1$, they require the co-operation of multiple parties at time $t$ to prove solvency. Preserving anonymity in transaction amounts leverages an idea called secret sharing [17]. The core proposition is that a party may share an amount of currency $c \in C$ amongst $n$ parties by sampling $c_0, c_1, ..., c_{n-1}$ uniformly at random from $C$. Next, $c_n$ is set to equal $c - \sum_{j=0}^{n-1} c_j$. Each party $p_i$ then receives a $c_i\ |\ i \leq n$, noting that $c$ can be reconstituted by $\sum_{j=0}^{n} c_j$. So long as \textit{at least} one party does not leak $c_i$, the value $c$ remains unknown to all parties.
+
+\textit{Zero Knowledge Arguments}. Sander and Ta-Shma [18] outline a system by which a ZKA (Zero-Knowledge Argument) can be offered to validate the ownership of a currency. In general terms, a ZKA allows Bob to demonstrate that he owns a particular currency $c \in C$, without providing Alice with any information not available by simply observing $C$ [19]. By way of example, consider $c = g^s$, such that $g$ is a generator and $s$ is secret. Then, a formulation of the ZKA might be [20],
+
+\begin{itemize}
+    \item Bob sends Alice $x = g^r$, where $r$ is random.
+    \item Alice sends Bob a random \textit{challenge} $y$.
+    \item Bob evaluates $z = s \cdot y + x$.
+    \item Alice \textit{verifies} $c^y \cdot x = g^z$.
+\end{itemize}
+
+Notice that because $c^{y} \cdot x = g^{s \cdot y} \cdot g^r$, the ZKA proves Bob's knowledge of $s$ without leaking the value itself. Therefore, as the discrete log problem is computationally intractable,  the ZKA does not provide Alice with anything \textit{except} the fact that Bob knows $s$.
+
+\textit{Ring Signatures}. Rivest, Shamir and Tauman [21] extended the earlier idea of blind signatures to formalise the notion of ring signatures. Instead of obfuscating the true signer of a currency $c$ as between three parties, a ring signature obfuscates the signer as against every observer. For Bob to send a currency to Alice, he signs $c$ with the public keys $K_n$ of the $n$ possible singers in the ring in addition to his private key $s$. Alice may then subsequently verify $c$ was indeed signed by a ring member but because the signer could be anyone in the ring, neither she nor a latent observer can determine Bob's identity. It therefore can be said that ring signatures preserve anonymity of identity.
+
+\textit{Homomorphic Encryption}. Rivest, Aldeman and Dertuzos [22] formulated a scheme by which privacy-preserving operations could theoretically be computed on an encrypted currency record stored in a remote, and potentially untrusted, environment. At its simplest, homomorphic encryption operates under the assumption that there exist two groups -- $P$ the plaintext space, and $C$ the ciphertext space -- such that mapping a value $p \in P$ to $c \in C$ involves an encryption function $E$ [23]. Such a scheme is homomorphic if
+
+\[E(c) \ast E(p) = E(c \ast p)\]
+
+where $\ast$ is the group law of $P$, or formally, for every $x, y \in P, f(x, y) = x \ast y$. Supposing that Bob owns a currency $c$, it is possible to calculate the interest $i$ on $c$ at a rate $r$ by computing the operation, $i = E(c) \cdot E(r)\ |\ i \in C$. Evidently, it is not possible to determine either $c$ or $i$ as both are encrypted by $E$.
